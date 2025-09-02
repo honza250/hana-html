@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jméno Příjmení – Osobní stránky / Rozcestník</title>
+  <meta name="description" content="Oficiální osobní stránky. Fyzioterapie koní, převoz koní a další služby." />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:title" content="Jméno Příjmení – Osobní stránky" />
+  <meta property="og:description" content="Fyzioterapie koní, převoz koní a další služby." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230ea5e9'/%3E%3Ctext x='50' y='58' font-size='50' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3EJP%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg: #0b1020;        /* pozadí hero */
+      --bg-page: #0f172a;   /* pozadí stránky */
+      --card: #111827;      /* karty */
+      --muted: #94a3b8;     /* sekundární text */
+      --text: #e5e7eb;      /* primární text */
+      --brand: #0ea5e9;     /* akce/odkazy */
+      --brand-2: #22d3ee;   /* akcent */
+      --ring: rgba(34,211,238,.25);
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg: #e0f2fe;
+        --bg-page: #f8fafc;
+        --card: #ffffff;
+        --muted: #475569;
+        --text: #0f172a;
+        --brand: #0ea5e9;
+        --brand-2: #0369a1;
+        --ring: rgba(14,165,233,.2);
+      }
+    }
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text); background:var(--bg-page);
+    }
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px; margin-inline:auto; padding:24px}
+    .nav{
+      position:sticky; top:0; backdrop-filter:saturate(1.2) blur(8px);
+      background:color-mix(in oklab, var(--bg-page) 80%, transparent);
+      border-bottom:1px solid color-mix(in oklab, var(--muted) 20%, transparent);
+      z-index:10;
+    }
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand .logo{width:36px; height:36px; border-radius:999px; background:linear-gradient(135deg,var(--brand),var(--brand-2)); display:grid; place-items:center; color:white; font-weight:900}
+    .nav a.btn{padding:.6rem 1rem; border-radius:999px; background:var(--brand); color:white; font-weight:600; box-shadow:0 8px 20px -8px var(--ring)}
+    .nav a.btn:hover{transform:translateY(-1px); box-shadow:0 10px 22px -8px var(--ring)}
+
+    .hero{
+      background:
+        radial-gradient(1000px 500px at 80% -100%, color-mix(in oklab, var(--brand) 15%, transparent), transparent),
+        radial-gradient(800px 400px at -10% 10%, color-mix(in oklab, var(--brand-2) 18%, transparent), transparent),
+        var(--bg);
+      padding:100px 0 60px;
+    }
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:32px; align-items:center}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}}
+    .kicker{color:var(--muted); font-weight:600; letter-spacing:.08em; text-transform:uppercase}
+    h1{font-size:clamp(28px, 4vw, 48px); line-height:1.2; margin:8px 0 16px}
+    .lead{font-size:clamp(16px, 2.4vw, 20px); color:var(--text)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:22px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:.85rem 1.1rem; border-radius:14px; font-weight:700; cursor:pointer; border:1px solid transparent}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2)); color:white; box-shadow:0 14px 30px -12px var(--ring)}
+    .btn-outline{border-color:color-mix(in oklab, var(--brand) 50%, transparent); color:var(--brand); background:transparent}
+    .btn:hover{transform:translateY(-1px)}
+    .hero-card{
+      background:linear-gradient(180deg, color-mix(in oklab, var(--card) 80%, transparent), var(--card));
+      border:1px solid color-mix(in oklab, var(--muted) 18%, transparent);
+      border-radius:18px; padding:22px; display:grid; gap:12px; box-shadow:0 10px 30px -20px rgba(0,0,0,.45)
+    }
+    .hero-card .row{display:flex; align-items:start; gap:12px}
+    .hero-card .row svg{flex:0 0 24px}
+
+    .section{padding:60px 0}
+    .section h2{font-size:clamp(22px, 3vw, 34px); margin:0 0 14px}
+    .muted{color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .card{background:var(--card); border:1px solid color-mix(in oklab, var(--muted) 20%, transparent); border-radius:18px; padding:18px; display:grid; gap:12px}
+    .card h3{margin:0}
+    .chip{display:inline-flex; align-items:center; gap:8px; font-size:.85rem; color:var(--muted)}
+    .chip svg{width:18px; height:18px}
+
+    .about{display:grid; grid-template-columns:1fr 1fr; gap:24px}
+    @media (max-width:900px){.about{grid-template-columns:1fr}}
+    .about .photo{border-radius:18px; background:linear-gradient(135deg, color-mix(in oklab, var(--brand) 20%, transparent), transparent); aspect-ratio:4/3; display:grid; place-items:center; font-weight:800; font-size:2rem}
+
+    .footer{padding:32px 0; border-top:1px solid color-mix(in oklab, var(--muted) 18%, transparent); color:var(--muted)}
+    .inline-list{display:flex; gap:14px; flex-wrap:wrap}
+    .inline-list a{color:inherit}
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Jméno Příjmení",
+    "url":"https://moje-domena.cz",
+    "image":"https://moje-domena.cz/og-image.jpg",
+    "jobTitle":"Fyzioterapeutka koní, přeprava koní",
+    "sameAs":["https://www.instagram.com/tvoje_handle","https://www.facebook.com/tvoje_handle"],
+    "knowsAbout":["equine physiotherapy","horse transport"],
+    "address":{"@type":"PostalAddress","addressLocality":"Region / Kraj"}
+  }
+  </script>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true">JP</span>
+        <span>Jméno Příjmení</span>
+      </a>
+      <nav aria-label="Hlavní navigace" class="inline-list">
+        <a href="#sluzby">Služby</a>
+        <a href="#o-mne">O mně</a>
+        <a href="#kontakt">Kontakt</a>
+        <a class="btn" href="#rezervace">Rezervace</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="Úvod">
+      <div class="container hero-grid">
+        <div>
+          <p class="kicker">Osobní rozcestník</p>
+          <h1>Pomáhám koním i lidem – od fyzioterapie po bezpečný převoz</h1>
+          <p class="lead">Jsem <strong>Jméno Příjmení</strong>. Nabízím profesionální <em>fyzioterapii koní</em>, spolehlivý <em>převoz koní</em> a do budoucna rozšířím nabídku o další služby. Vyberte si, s čím vám dnes mohu pomoci.</p>
+          <div class="cta">
+            <a class="btn btn-primary" href="#sluzby">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Prohlédnout služby
+            </a>
+            <a class="btn btn-outline" href="#kontakt">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Zavolat / napsat
+            </a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Rychlé informace">
+          <div class="row"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <strong>Volné termíny</strong>
+              <div class="muted">Aktualizováno: <span id="today"></span></div>
+            </div>
+          </div>
+          <div class="row"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 5h18M3 12h18M3 19h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <strong>Cestovní oblast</strong>
+              <div class="muted">Primárně Region/Kraj, po domluvě celá ČR a okolí.</div>
+            </div>
+          </div>
+          <div class="row"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <div>
+              <strong>Pojištění & bezpečnost</strong>
+              <div class="muted">Přepravník pravidelně servisován, pojištění Náklad/OSVČ.</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="sluzby" class="section">
+      <div class="container">
+        <h2>Služby</h2>
+        <p class="muted">Vyberte si oblast, o kterou máte zájem. Každá karta má rychlý kontakt i popis.</p>
+        <div class="grid" role="list">
+          <!-- Fyzioterapie koní -->
+          <article class="card" role="listitem">
+            <div class="chip" aria-label="Kategorie">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Fyzioterapie koní
+            </div>
+            <h3>Fyzioterapie koní</h3>
+            <p>Komplexní vyšetření, uvolnění měkkých tkání, mobilizace, cvičení a doporučení pro domácí péči. Spolupracuji s veterináři a trenéry.</p>
+            <ul class="muted">
+              <li>Vyšetření na místě – stáj / areál</li>
+              <li>Individuální plán a instrukce</li>
+              <li>Možnost dlouhodobé péče (balíček)</li>
+            </ul>
+            <div class="cta">
+              <a class="btn btn-primary" href="#rezervace">Rezervovat</a>
+              <a class="btn btn-outline" href="#kontakt">Dotaz</a>
+            </div>
+          </article>
+
+          <!-- Převoz koní -->
+          <article class="card" role="listitem">
+            <div class="chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Převoz koní
+            </div>
+            <h3>Převoz koní</h3>
+            <p>Bezpečný a klidný transport jedním až dvěma místy. Zkušenosti s mladými i citlivými koňmi. Dohoda o čase i trase.</p>
+            <ul class="muted">
+              <li>Přepravník 2×1,5 – gumová podlaha</li>
+              <li>Možnost čekání na místě</li>
+              <li>Smlouva a fakturace samozřejmostí</li>
+            </ul>
+            <div class="cta">
+              <a class="btn btn-primary" href="#rezervace">Nezávazná poptávka</a>
+              <a class="btn btn-outline" href="#kontakt">Zavolat</a>
+            </div>
+          </article>
+
+          <!-- Brzy přidám -->
+          <article class="card" role="listitem">
+            <div class="chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Nová služba (brzy)
+            </div>
+            <h3>Další služba</h3>
+            <p>Rozšíření nabídky připravuji. Pokud máte návrh nebo poptávku, napište mi a rád(a) se ozvu.</p>
+            <div class="cta">
+              <a class="btn btn-outline" href="#kontakt">Navrhnout</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-mne" class="section">
+      <div class="container about">
+        <div>
+          <h2>O mně</h2>
+          <p>Jsem certifikovaný/á praktik/čka zaměřený/á na zdravý pohybový aparát koní a bezpečný transport. Dlouhodobě spolupracuji s majiteli rekreačních i sportovních koní. Zakládám si na komunikaci, klidu a respektu k jednotlivým koním.</p>
+          <ul class="muted">
+            <li>Praxe od roku 20XX</li>
+            <li>Pojištění odpovědnosti a nákladu</li>
+            <li>Fakturace: IČO 12345678</li>
+          </ul>
+        </div>
+        <div class="photo" aria-label="Profilová fotografie">
+          Vaše foto
+        </div>
+      </div>
+    </section>
+
+    <section id="rezervace" class="section" aria-label="Rezervace">
+      <div class="container">
+        <h2>Rezervace / poptávka</h2>
+        <p class="muted">Vyplňte krátký formulář – ozvu se zpět do 24 hodin. (Formulář odešle e‑mail.)</p>
+        <form id="form" class="card" action="mailto:vas-email@example.com" method="post" enctype="text/plain">
+          <label>
+            Jméno a příjmení<br />
+            <input name="Jméno" required placeholder="Vaše jméno" />
+          </label>
+          <label>
+            Telefon<br />
+            <input name="Telefon" type="tel" required placeholder="+420 123 456 789" />
+          </label>
+          <label>
+            E‑mail<br />
+            <input name="Email" type="email" required placeholder="vase@adresa.cz" />
+          </label>
+          <label>
+            Služba<br />
+            <select name="Služba">
+              <option>Fyzioterapie koní</option>
+              <option>Převoz koní</option>
+              <option>Jiné / dotaz</option>
+            </select>
+          </label>
+          <label>
+            Zpráva / termín<br />
+            <textarea name="Zpráva" rows="4" placeholder="Napište mi detaily – lokalita, termíny, kůň…"></textarea>
+          </label>
+          <div class="cta">
+            <button class="btn btn-primary" type="submit">Odeslat</button>
+            <button class="btn btn-outline" type="reset">Vymazat</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="kontakt" class="section" aria-label="Kontakt">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Rychlý kontakt</h3>
+            <p>
+              <strong>Telefon:</strong> <a href="tel:+420123456789">+420 123 456 789</a><br />
+              <strong>E‑mail:</strong> <a href="mailto:vas-email@example.com">vas-email@example.com</a>
+            </p>
+            <p class="muted">Region / Kraj • IČO 12345678</p>
+          </div>
+          <div class="card">
+            <h3>Sociální sítě</h3>
+            <p class="inline-list">
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="Facebook">Facebook</a>
+              <a href="#" aria-label="WhatsApp">WhatsApp</a>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Fakturace</h3>
+            <p class="muted">Jméno Příjmení • IČO 12345678 • DIČ CZ12345678<br/>
+            Banka 0000 0000000000/0000</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="inline-list">
+        <span>© <span id="year"></span> Jméno Příjmení</span>
+        <a href="#">Zásady ochrany osobních údajů</a>
+        <a href="#">Obchodní podmínky</a>
+        <a href="#top">Nahoru ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll pro kotevní odkazy
+    document.addEventListener('click', (e)=>{
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if(el){
+        e.preventDefault();
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        history.pushState(null, '', '#' + id);
+      }
+    });
+
+    // Dnešní datum a rok
+    const d = new Date();
+    document.getElementById('today').textContent = d.toLocaleDateString('cs-CZ');
+    document.getElementById('year').textContent = d.getFullYear();
+
+    // Vylepšení formuláře: potvrzení odeslání přes mailto
+    const form = document.getElementById('form');
+    form?.addEventListener('submit', (e)=>{
+      // Mailto otevře klienta – pouze přidáme subjekt a text
+      const data = new FormData(form);
+      const subject = encodeURIComponent('Poptávka: ' + (data.get('Služba') || 'Služba'));
+      const body = [...data.entries()].map(([k,v]) => `${k}: ${v}`).join('%0D%0A');
+      form.action = `mailto:vas-email@example.com?subject=${subject}&body=${body}`;
+    });
+
+    // Fokus styl pro vstupy
+    document.querySelectorAll('input, select, textarea').forEach(el=>{
+      el.style.width='100%';
+      el.style.padding='10px 12px';
+      el.style.marginTop='6px';
+      el.style.borderRadius='12px';
+      el.style.border='1px solid color-mix(in oklab, var(--muted) 25%, transparent)';
+      el.addEventListener('focus',()=> el.style.boxShadow=`0 0 0 6px var(--ring)`);
+      el.addEventListener('blur',()=> el.style.boxShadow='none');
+      el.style.background='var(--card)'; el.style.color='var(--text)';
+    });
+  </script>
+</body>
+</html>
