@@ -284,8 +284,22 @@
           <div class="card">
             <h3>Kontaktní údaje</h3>
             <p>
-              <strong>Telefon:</strong> <a href="tel:+420776245040">+420 776 245 040</a><br />
-              <strong>E‑mail:</strong> <a href="mailto:vas-email@seznam.cz">vas-email@seznam.cz</a><br />
+              <strong>Telefon:</strong> <a href="tel:+420776245040">+420 776 245 040</a>
+              <button onclick="copyToClipboard('+420776245040', this)" style="margin-left: 8px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--brand); background: transparent; color: var(--brand); cursor: pointer; font-size: 14px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--brand)'; this.style.color='white';" onmouseout="this.style.background='transparent'; this.style.color='var(--brand)';">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 4px;">
+                  <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Kopírovat
+              </button><br />
+              <strong>E‑mail:</strong> <a href="mailto:perutkovah@seznam.cz">perutkovah@seznam.cz</a>
+              <button onclick="copyToClipboard('perutkovah@seznam.cz', this)" style="margin-left: 8px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--brand); background: transparent; color: var(--brand); cursor: pointer; font-size: 14px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--brand)'; this.style.color='white';" onmouseout="this.style.background='transparent'; this.style.color='var(--brand)';">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 4px;">
+                  <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                Kopírovat
+              </button><br />
               <strong>Provozní doba:</strong> dle dohody
             </p>
           </div>
@@ -463,7 +477,7 @@
       const data = new FormData(form);
       const subject = encodeURIComponent('Poptávka: ' + (data.get('Služba') || 'Služba'));
       const body = [...data.entries()].map(([k,v]) => `${k}: ${v}`).join('%0D%0A');
-      form.action = `mailto:vas-email@example.com?subject=${subject}&body=${body}`;
+      form.action = `mailto:perutkovah@seznam.cz?subject=${subject}&body=${body}`;
     });
 
     document.querySelectorAll('input, select, textarea').forEach(el => {
@@ -477,6 +491,26 @@
       el.style.background='var(--card)'; 
       el.style.color='var(--text)';
     });
+
+    // Copy to clipboard function
+    function copyToClipboard(text, button) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalHTML = button.innerHTML;
+        button.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 4px;"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Zkopírováno!';
+        button.style.background = 'var(--brand)';
+        button.style.color = 'white';
+        button.style.borderColor = 'var(--brand)';
+        setTimeout(() => {
+          button.innerHTML = originalHTML;
+          button.style.background = 'transparent';
+          button.style.color = 'var(--brand)';
+          button.style.borderColor = 'var(--brand)';
+        }, 2000);
+      }).catch(err => {
+        console.error('Chyba při kopírování:', err);
+        alert('Nepodařilo se zkopírovat do schránky');
+      });
+    }
   </script>
 </body>
 </html>

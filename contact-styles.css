@@ -1,0 +1,79 @@
+/* Contact items with copy buttons */
+.contact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid color-mix(in oklab, var(--muted) 30%, transparent);
+    background: var(--card);
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background: color-mix(in oklab, var(--brand) 10%, var(--card));
+    border-color: var(--brand);
+    color: var(--brand);
+    transform: translateY(-1px);
+}
+
+.copy-btn svg {
+    flex-shrink: 0;
+}
+
+/* Social button */
+.social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #1877F2, #1664d8);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px -2px rgba(24, 119, 242, 0.3);
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px -2px rgba(24, 119, 242, 0.4);
+    text-decoration: none;
+}
+
+.social-btn svg {
+    flex-shrink: 0;
+}
+
+/* Mobile responsive for contact items */
+@media (max-width: 768px) {
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .copy-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
