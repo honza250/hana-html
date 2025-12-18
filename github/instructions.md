@@ -1,0 +1,1 @@
+delam projekt ktery ma byt nasazen na github io server - takze jsem omezen a nemohu pouzit veci jako node.js - zatim se to snazim delat ciste pres html css a co je mozne
