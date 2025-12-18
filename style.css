@@ -508,7 +508,8 @@ h1 {
   background: color-mix(in oklab, var(--card) 95%, transparent);
 }
 
-.nav-item.dropdown:hover .dropdown-menu {
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown.dropdown-active .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -561,7 +562,8 @@ h1 {
     max-width: 400px;
   }
 
-  .nav-item.dropdown:hover .dropdown-menu {
+  .nav-item.dropdown:hover .dropdown-menu,
+  .nav-item.dropdown.dropdown-active .dropdown-menu {
     transform: translateX(-50%) translateY(0);
   }
 }

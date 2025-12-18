@@ -21,15 +21,46 @@
         <span class="logo" aria-hidden="true">HP</span>
         <span>Hana Perutková</span>
       </a>
-      <nav aria-label="Hlavní navigace" class="inline-list">
-        <a href="index.html#sluzby">Služby</a>
-        <a href="index.html#o-mne">O mně</a>
-        <a href="index.html#kontakt">Kontakt</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Přepnout téma">
-          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
+      <nav aria-label="Hlavní navigace" class="main-nav">
+        <div class="nav-item dropdown">
+          <a href="index.html#sluzby" class="nav-link">Služby 
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dropdown-arrow">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="fyzioterapie-koni.html" class="dropdown-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Fyzioterapie koní</span>
+            </a>
+            <a href="preprava-koni.html" class="dropdown-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Přeprava koní</span>
+            </a>
+            <a href="vyuka-nastupovani.html" class="dropdown-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 6v12M9 12l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Výuka nastupování</span>
+            </a>
+          </div>
+        </div>
+        <a href="index.html#o-mne" class="nav-link">O mně</a>
+        <a href="index.html#kontakt" class="nav-link">Kontakt</a>
       </nav>
+      <button id="theme-toggle" aria-label="Přepnout tmavý/světlý režim" title="Přepnout tmavý/světlý režim">
+        <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -141,14 +172,94 @@
 
     // Theme toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
-    const html = document.documentElement;
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    html.className = savedTheme === 'dark' ? 'dark-theme' : 'light-theme';
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const root = document.documentElement;
 
+    // Check for saved theme preference or default to system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+    // Apply initial theme
+    function setTheme(theme) {
+      root.classList.remove('light-theme', 'dark-theme');
+      root.classList.add(`${theme}-theme`);
+      
+      // Toggle icon visibility
+      if (theme === 'dark') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+      
+      localStorage.setItem('theme', theme);
+    }
+
+    // Set initial theme
+    setTheme(currentTheme);
+
+    // Toggle theme on button click
     themeToggle.addEventListener('click', () => {
-      const isDark = html.classList.contains('dark-theme');
-      html.className = isDark ? 'light-theme' : 'dark-theme';
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+      const newTheme = root.classList.contains('dark-theme') ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+
+    // Auto-hide navigation on scroll
+    let lastScroll = window.pageYOffset;
+    const header = document.querySelector('header.nav');
+    const dropdown = document.querySelector('.nav-item.dropdown');
+    let isDropdownOpen = false;
+    
+    // Dropdown click toggle for mobile
+    const dropdownLink = dropdown?.querySelector('.nav-link');
+    if (dropdownLink) {
+      dropdownLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent navigation to #sluzby
+        isDropdownOpen = !isDropdownOpen;
+        dropdown.classList.toggle('dropdown-active', isDropdownOpen);
+      });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (dropdown && !dropdown.contains(e.target) && isDropdownOpen) {
+        isDropdownOpen = false;
+        dropdown.classList.remove('dropdown-active');
+      }
+    });
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.pageYOffset;
+          
+          // Don't hide menu if dropdown is open
+          if (isDropdownOpen) {
+            lastScroll = currentScroll;
+            ticking = false;
+            return;
+          }
+          
+          // Scrolling down
+          if (currentScroll > lastScroll && currentScroll > 100) {
+            header.classList.add('nav-hidden');
+          } 
+          // Scrolling up
+          else if (currentScroll < lastScroll) {
+            header.classList.remove('nav-hidden');
+          }
+          
+          lastScroll = currentScroll;
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
     });
   </script>
 </body>
