@@ -296,6 +296,38 @@
   </footer>
 
   <script>
+    // Auto-hide navigation on scroll
+    let lastScroll = window.pageYOffset;
+    const header = document.querySelector('header.nav');
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.pageYOffset;
+          
+          console.log('Scroll:', currentScroll, 'Last:', lastScroll, 'Direction:', currentScroll > lastScroll ? 'down' : 'up');
+          
+          // Scrolling down
+          if (currentScroll > lastScroll && currentScroll > 100) {
+            console.log('Hiding menu');
+            header.classList.add('nav-hidden');
+          } 
+          // Scrolling up
+          else if (currentScroll < lastScroll) {
+            console.log('Showing menu');
+            header.classList.remove('nav-hidden');
+          }
+          
+          lastScroll = currentScroll;
+          ticking = false;
+        });
+        
+        ticking = true;
+      }
+    });
+
     // Certificate Carousel
     let currentSlide = 0;
     const track = document.getElementById('cert-track');
