@@ -345,7 +345,7 @@ h1 {
 }
 
 .section {
-  padding: 60px 0;
+  padding: 20px 0;
 }
 
 .section h2 {
@@ -578,4 +578,29 @@ h1 {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+/* O mně section mobile responsive */
+@media (max-width: 768px) {
+  #o-mne .container>div[style*="grid-template-columns"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem !important;
+  }
+
+  #o-mne .container>div>div[style*="width: 400px"] {
+    width: 100% !important;
+    max-width: 400px !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Menší mezera mezi Službami a O mně */
+#o-mne {
+  padding-top: 0;
+}
+
+/* Menší mezera mezi O mně (certifikáty) a Kontakt */
+#kontakt {
+  padding-top: 0;
 }
