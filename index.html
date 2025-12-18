@@ -43,13 +43,13 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-label="Úvod">
-      <div class="container hero-grid">
-        <div>
-          <img src="public/hana-fotky-web/uvodka.jpg" alt="Hana Perutková - úvodní foto" style="width: 100%; max-height: 500px; object-fit: cover; border-radius: 20px; margin-bottom: 1.5rem; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2);">
-          <h1>Pomáhám koním i lidem – od fyzioterapie po bezpečný převoz</h1>
-          <p class="lead">
-            Jsem <strong>Hana Perutkova</strong>. Nabízím profesionální <em>fyzioterapii koní</em>, spolehlivý <em>převoz koní</em> a do budoucna rozšířím nabídku o další služby. Vyberte si, s čím vám dnes mohu pomoci.
+    <section class="hero" aria-label="Úvod" style="background-image: url('public/hana-fotky-web/uvodka.jpg'); background-size: cover; background-position: center 30%; min-height: 250px; display: flex; align-items: center; position: relative;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0));"></div>
+      <div class="container" style="position: relative; z-index: 1;">
+        <div style="max-width: 50%; background: rgba(0,0,0,0.37); padding: 2rem; border-radius: 12px; backdrop-filter: blur(0.5px);">
+          <h1 style="color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">Mé služby, váš spokojený kůň</h1>
+          <p class="lead" style="color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+            Každý kůň je osobnost. Má svůj příběh, svou povahu i své tempo. Věřím, že klid, trpělivost a porozumění jsou základem skutečné spolupráce mezi člověkem a koněm. Vše, co dělám, vychází z respektu, klidu a lásky ke koním — protože spokojený kůň je tím nejlepším důkazem správné životní cesty.
           </p>
           <div class="cta">
             <a class="btn btn-primary" href="#sluzby">
@@ -58,7 +58,7 @@
               </svg>
               Prohlédnout služby
             </a>
-            <a class="btn btn-outline" href="#kontakt">
+            <a class="btn btn-outline" href="#kontakt" style="border-color: white; color: white;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
@@ -66,35 +66,6 @@
             </a>
           </div>
         </div>
-        <aside class="hero-card" aria-label="Rychlé informace">
-          <div class="row">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M12 3v18M3 12h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div>
-              <strong>Volné termíny</strong>
-              <div class="muted">Aktualizováno: <span id="today"></span></div>
-            </div>
-          </div>
-          <div class="row">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M3 5h18M3 12h18M3 19h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div>
-              <strong>Cestovní oblast</strong>
-              <div class="muted">Primárně Region/Kraj, po domluvě celá ČR a okolí.</div>
-            </div>
-          </div>
-          <div class="row">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div>
-              <strong>Pojištění & bezpečnost</strong>
-              <div class="muted">Přepravník pravidelně servisován, pojištění Náklad/OSVČ.</div>
-            </div>
-          </div>
-        </aside>
       </div>
     </section>
 
@@ -103,20 +74,21 @@
         <h2>Služby</h2>
         <div class="grid" role="list">
 
-          <!-- Fyzioterapie koní -->
+          <!-- Ošetření pohybového aparátu koní -->
           <article class="card" role="listitem" data-href="fyzioterapie-koni.html">
             <div class="chip" aria-label="Kategorie">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
-              Fyzioterapie koní
+              Fyzioterapie
             </div>
-            <h3>Fyzioterapie koní</h3>
-            <p>Komplexní vyšetření, uvolnění měkkých tkání, mobilizace, cvičení a doporučení pro domácí péči. Spolupracuji s veterináři a trenéry.</p>
+            <h3>Ošetření pohybového aparátu koní</h3>
+            <p>Ošetření koní pro zlepšení fyzické a psychické kondice, prevenci zranění, rehabilitaci po zranění a zvýšení výkonu koní.</p>
             <ul class="muted">
-              <li>Vyšetření na místě – stáj / areál</li>
-              <li>Individuální plán a instrukce</li>
-              <li>Možnost dlouhodobé péče (balíček)</li>
+              <li>Individuální přístup ke každému koni</li>
+              <li>Masáž, strečink, mobilizace, kinesiotaping</li>
+              <li>Kontrola sedla a instruktáž majitele</li>
+              <li><strong>Ceník: 2000 Kč za koně</strong> (cestovné v ceně)</li>
             </ul>
             <div class="cta">
               <a class="btn btn-primary" href="fyzioterapie-koni.html">Více informací</a>
@@ -124,23 +96,46 @@
             </div>
           </article>
 
-          <!-- Převoz koní -->
+          <!-- Profesionální přeprava koní -->
           <article class="card" role="listitem" data-href="preprava-koni.html">
             <div class="chip">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
               </svg>
-              Převoz koní
+              Přeprava
             </div>
-            <h3>Převoz koní</h3>
-            <p>Bezpečný a klidný transport jedním až dvěma místy. Zkušenosti s mladými i citlivými koňmi. Dohoda o čase i trase.</p>
+            <h3>Profesionální přeprava koní</h3>
+            <p>Bezpečně, pohodlně a klidně, jak pro vaše koně, tak i pro vás jako majitele. Nissan Pathfinder 4x4 + dvoumístný přívěs s kamerovým systémem.</p>
             <ul class="muted">
-              <li>Přepravník 2×1,5 – gumová podlaha</li>
-              <li>Možnost čekání na místě</li>
-              <li>Smlouva a fakturace samozřejmostí</li>
+              <li>Protiskluzové podlahy, panic systém</li>
+              <li>Registrace: CZ 51D10045</li>
+              <li><strong>Ceník: 18 Kč/km</strong> (vč. přístavných km)</li>
+              <li>Čekací doba: 200 Kč/h | Nakládání: 300 Kč/h</li>
             </ul>
             <div class="cta">
               <a class="btn btn-primary" href="preprava-koni.html">Více informací</a>
+              <a class="btn btn-outline" href="#kontakt">Kontaktovat</a>
+            </div>
+          </article>
+
+          <!-- Výuka nastupování problémových koní -->
+          <article class="card" role="listitem" data-href="vyuka-nastupovani.html">
+            <div class="chip">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 6v12M9 12l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Výuka
+            </div>
+            <h3>Výuka nastupování problémových koní</h3>
+            <p>Naučím vašeho koně ochotně a rychle nastupovat, ať máte jistotu i v krizových situacích – akutní převoz na kliniku.</p>
+            <ul class="muted">
+              <li>Nácvik bez časového tlaku</li>
+              <li>Můžu přijet s vlastním nebo využijeme váš přívěs</li>
+              <li>Asistence majiteli nebo samostatná práce</li>
+              <li><strong>Ceník:</strong> Individuální domluva + doprava</li>
+            </ul>
+            <div class="cta">
+              <a class="btn btn-primary" href="vyuka-nastupovani.html">Více informací</a>
               <a class="btn btn-outline" href="#kontakt">Kontaktovat</a>
             </div>
           </article>
@@ -150,20 +145,60 @@
     </section>
 
     <section id="o-mne" class="section">
-      <div class="container about">
-        <div>
-          <h2>O mně</h2>
-          <p>
-            Jsem certifikovaný/á praktik/čka zaměřený/á na zdravý pohybový aparát koní a bezpečný transport. Dlouhodobě spolupracuji s majiteli rekreačních i sportovních koní. Zakládám si na komunikaci, klidu a respektu k jednotlivým koním.
-          </p>
-          <ul class="muted">
-            <li>Praxe od roku 20XX</li>
-            <li>Pojištění odpovědnosti a nákladu</li>
-            <li>Fakturace: IČO 12345678</li>
-          </ul>
-        </div>
-        <div class="photo" aria-label="Profilová fotografie">
-          <img src="photos/traktor.jpg" alt="Hana Perutková" style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+      <div class="container">
+        <h2>O mně</h2>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem;">
+          <!-- Text content -->
+          <div>
+            <p>
+              Jmenuji se Hana Perutková, bydlím blízko České Lípy (Liberecký kraj). Kolem koní se pohybuji přes 10 let, postupem času jsem získala a stále získávám spoustu cenných zkušeností s nejrůznějšími typy koní a jejich výcvikem. Neustále se vzdělávám v oborech týkajících se koní.
+            </p>
+            <p>
+              Ošetření pohybového aparátu koní se věnuji od roku 2025, kdy jsem úspěšně složila zkoušky pod Asociací fyzioterapie a rehabilitace zvířat České republiky, čímž jsem získala titul <strong>CertCAAPR</strong>. Přepravou koní se zabývám od roku 2024, kdy jsem získala všechna potřebná oprávnění (registrace: <strong>CZ 51D10045</strong>). Při přepravě vždy dbám především na komfort vašich koní.
+            </p>
+            
+            <h3 style="margin-top: 2rem;">Vzdělání a certifikace</h3>
+            
+            <div style="margin-top: 1rem;">
+              <p><strong>2025</strong></p>
+              <ul class="muted">
+                <li>Kurz Fyzioterapie a rehabilitace koní pod Asociací fyzioterapie a rehabilitace zvířat ČR, titul CertCAAPR</li>
+                <li>Praxe v Centru rehabilitace koní Kolesa</li>
+                <li>Praxe s Mvdr. Eliškou Punčochářovou PhD.</li>
+              </ul>
+            </div>
+            
+            <div style="margin-top: 1rem;">
+              <p><strong>2024</strong></p>
+              <ul class="muted">
+                <li>Školení MLS laserová terapie u koní</li>
+                <li>Kurz pro dopravce přepravující zvířata</li>
+                <li>Kurz bezpečné přepravy a nakládání koní</li>
+                <li>Kurz manipulace s koňmi v krizových situacích</li>
+              </ul>
+            </div>
+            
+            <div style="margin-top: 1rem;">
+              <p><strong>2023</strong></p>
+              <ul class="muted">
+                <li>Získání ZZVJ licence</li>
+                <li>Kurz lepení podkov Goodsmith a pasování bot Goodsmith</li>
+              </ul>
+            </div>
+            
+            <div style="margin-top: 1rem;">
+              <p><strong>2022</strong></p>
+              <ul class="muted">
+                <li>Kurz Výživa koní - Ing. Monika Mechová</li>
+                <li>Kurz lepení podkov Turfcord</li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Photo -->
+          <div>
+            <img src="public/hana-fotky-web/Hana.png" alt="Hana Perutková" style="width: 100%; object-fit: contain; border-radius: 20px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2);">
+          </div>
         </div>
       </div>
     </section>
@@ -174,23 +209,45 @@
         <div class="grid">
           <div class="card">
             <h3>Osobní údaje</h3>
-            <p class="muted">Hana Perutkova</p>
-            <p class="muted">Mimoň, Komenského 46, Liberecký kraj</p>
-            <p class="muted">IČO 12345678</p>
+            <p class="muted">Hana Perutková</p>
+            <p class="muted">Komenského 46, Mimoň, 471 24</p>
+            <p class="muted">Liberecký kraj</p>
+            <p class="muted">IČO: 21291152</p>
           </div>
           <div class="card">
             <h3>Kontaktní údaje</h3>
             <p>
-              <strong>Telefon:</strong> <a href="tel:+420123456789">+420 123 456 789</a><br />
-              <strong>E‑mail:</strong> <a href="vas-email@example.com">vas-email@example.com</a>
+              <strong>Telefon:</strong> <a href="tel:+420776245040">+420 776 245 040</a><br />
+              <strong>E‑mail:</strong> <a href="mailto:vas-email@seznam.cz">vas-email@seznam.cz</a><br />
+              <strong>Provozní doba:</strong> dle dohody
             </p>
           </div>
           <div class="card">
             <h3>Sociální sítě</h3>
             <p class="inline-list">
-              <a href="#" aria-label="Facebook">Facebook</a>
-              <a href="#" aria-label="WhatsApp">WhatsApp</a>
+              <a href="#" aria-label="Facebook">Facebook: Hana Perutková Cert CAAPR</a>
             </p>
+            <p class="muted" style="margin-top: 1rem;">
+              <strong>Certifikace:</strong><br>
+              CertCAAPR - Fyzioterapie koní<br>
+              Dopravce: CZ 51D10045
+            </p>
+          </div>
+        </div>
+        
+        <!-- Google Maps -->
+        <div style="margin-top: 3rem;">
+          <h3 style="margin-bottom: 1rem;">Kde mě najdete</h3>
+          <div style="border-radius: 18px; overflow: hidden; box-shadow: 0 10px 30px -20px rgba(0, 0, 0, .45);">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2513.8!2d14.7341!3d50.6631!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4709f2e0a0a0a0a0%3A0xa0a0a0a0a0a0a0a0!2sKomenského 46, 471 24 Mimoň!5e0!3m2!1scs!2scz!4v1234567890"
+              width="100%" 
+              height="400" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
           </div>
         </div>
       </div>
