@@ -403,6 +403,11 @@ h1 {
   margin: 0;
 }
 
+/* Padding pro nadpisy v sekci služby (kvůli ikoně vpravo) */
+#sluzby .card h3 {
+  padding-right: 60px;
+}
+
 .chip {
   display: inline-flex;
   align-items: center;
