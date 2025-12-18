@@ -442,12 +442,14 @@ h1 {
   padding: 32px 0;
   border-top: 1px solid color-mix(in oklab, var(--muted) 18%, transparent);
   color: var(--muted);
+  text-align: center;
 }
 
 .inline-list {
   display: flex;
   gap: 14px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .inline-list a {
