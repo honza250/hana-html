@@ -29,6 +29,30 @@
   }
 }
 
+/* Light theme class override */
+:root.light-theme {
+  --bg: #e0f9f7;
+  --bg-page: #f8fffe;
+  --card: #ffffff;
+  --muted: #475569;
+  --text: #0f172a;
+  --brand: #4ECDC4;
+  --brand-2: #3ab5ac;
+  --ring: rgba(78, 205, 196, .2);
+}
+
+/* Dark theme class override */
+:root.dark-theme {
+  --bg: #0b1f1e;
+  --bg-page: #0f172a;
+  --card: #111827;
+  --muted: #94a3b8;
+  --text: #e5e7eb;
+  --brand: #4ECDC4;
+  --brand-2: #45b8af;
+  --ring: rgba(78, 205, 196, .25);
+}
+
 *,
 *::before,
 *::after {
@@ -108,6 +132,34 @@ header.nav {
 
 header.nav.nav-hidden {
   transform: translateY(-100%);
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in oklab, var(--muted) 25%, transparent);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.1);
+}
+
+#theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+  border-color: var(--brand);
+  background: color-mix(in oklab, var(--brand) 10%, var(--card));
+}
+
+#theme-toggle:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.15);
 }
 
 .nav a.btn {
@@ -321,6 +373,122 @@ h1 {
 
 .inline-list a {
   color: inherit;
+}
+
+/* Main navigation */
+.main-nav {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: var(--text);
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link:hover {
+  background: color-mix(in oklab, var(--brand) 10%, transparent);
+  color: var(--brand);
+  text-decoration: none;
+}
+
+/* Dropdown container */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.dropdown-arrow {
+  transition: transform 0.3s ease;
+}
+
+.nav-item.dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 260px;
+  background: var(--card);
+  border: 1px solid color-mix(in oklab, var(--muted) 25%, transparent);
+  border-radius: 12px;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  backdrop-filter: saturate(1.2) blur(12px);
+  background: color-mix(in oklab, var(--card) 95%, transparent);
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Dropdown items */
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: var(--text);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.dropdown-item:hover {
+  background: linear-gradient(135deg,
+      color-mix(in oklab, var(--brand) 15%, transparent),
+      color-mix(in oklab, var(--brand-2) 10%, transparent));
+  color: var(--brand);
+  transform: translateX(4px);
+  text-decoration: none;
+}
+
+.dropdown-item svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--brand);
+}
+
+.dropdown-item span {
+  flex: 1;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .main-nav {
+    gap: 12px;
+  }
+
+  .dropdown-menu {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    min-width: calc(100vw - 48px);
+    max-width: 400px;
+  }
+
+  .nav-item.dropdown:hover .dropdown-menu {
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 .sr-only {

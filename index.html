@@ -34,11 +34,46 @@
         <span class="logo" aria-hidden="true">HP</span>
         <span>Hana Perutková</span>
       </a>
-      <nav aria-label="Hlavní navigace" class="inline-list">
-        <a href="#sluzby">Služby</a>
-        <a href="#o-mne">O mně</a>
-        <a href="#kontakt">Kontakt</a>
+      <nav aria-label="Hlavní navigace" class="main-nav">
+        <div class="nav-item dropdown">
+          <a href="#sluzby" class="nav-link">Služby 
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dropdown-arrow">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <div class="dropdown-menu">
+            <a href="fyzioterapie-koni.html" class="dropdown-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Fyzioterapie koní</span>
+            </a>
+            <a href="preprava-koni.html" class="dropdown-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Přeprava koní</span>
+            </a>
+            <a href="vyuka-nastupovani.html" class="dropdown-item">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 6v12M9 12l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              <span>Výuka nastupování</span>
+            </a>
+          </div>
+        </div>
+        <a href="#o-mne" class="nav-link">O mně</a>
+        <a href="#kontakt" class="nav-link">Kontakt</a>
       </nav>
+      <button id="theme-toggle" aria-label="Přepnout tmavý/světlý režim" title="Přepnout tmavý/světlý režim">
+        <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -296,6 +331,43 @@
   </footer>
 
   <script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const root = document.documentElement;
+
+    // Check for saved theme preference or default to system preference
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+
+    // Apply initial theme
+    function setTheme(theme) {
+      root.classList.remove('light-theme', 'dark-theme');
+      root.classList.add(`${theme}-theme`);
+      
+      // Toggle icon visibility
+      if (theme === 'dark') {
+        sunIcon.style.display = 'none';
+        moonIcon.style.display = 'block';
+      } else {
+        sunIcon.style.display = 'block';
+        moonIcon.style.display = 'none';
+      }
+      
+      localStorage.setItem('theme', theme);
+    }
+
+    // Set initial theme
+    setTheme(currentTheme);
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+      const newTheme = root.classList.contains('dark-theme') ? 'light' : 'dark';
+      setTheme(newTheme);
+    });
+
     // Auto-hide navigation on scroll
     let lastScroll = window.pageYOffset;
     const header = document.querySelector('header.nav');
