@@ -1,4 +1,3 @@
-<script>
 // Copy to clipboard function
 function copyToClipboard(text, button) {
   navigator.clipboard.writeText(text).then(() => {
@@ -13,4 +12,3 @@ function copyToClipboard(text, button) {
     }, 2000);
   }).catch(err => console.error('Chyba při kopírování:', err));
 }
-</script>
