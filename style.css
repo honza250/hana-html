@@ -380,12 +380,22 @@ h1 {
 
 /* Jen pro sekci služby */
 #sluzby .card {
-  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   border: 2px solid var(--brand);
   /* zelený border v brandové barvě */
   cursor: pointer;
   background-color: var(--card, #fff);
   border-radius: 12px;
+}
+
+/* Světlý režim - jemný box shadow pro vizuální oddělení */
+:root.light-theme #sluzby .card {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+/* Tmavý režim - lehce světlejší pozadí pro lepší kontrast */
+:root.dark-theme #sluzby .card {
+  background-color: #1a2332;
 }
 
 #sluzby .card:hover {
