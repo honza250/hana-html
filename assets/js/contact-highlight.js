@@ -36,3 +36,15 @@ window.addEventListener('hashchange', () => {
         setTimeout(highlightContactCards, 300);
     }
 });
+
+// Also listen for clicks on contact links directly
+document.addEventListener('DOMContentLoaded', () => {
+    const contactLinks = document.querySelectorAll('a[href="#kontakt"], a[href*="#kontakt"]');
+
+    contactLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            // Trigger animation after a small delay to let scroll happen
+            setTimeout(highlightContactCards, 300);
+        });
+    });
+});
