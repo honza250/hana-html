@@ -350,4 +350,13 @@ h1 {
         position: static !important;
         margin-top: 1.5rem;
     }
+
+    /* Pricing Section - Mobile Responsive */
+    .page-transport .lead[style*="font-size: 1.75rem"] {
+        font-size: 1.25rem !important;
+    }
+
+    .page-transport .lead[style*="font-size: 1.5rem"] {
+        font-size: 1.1rem !important;
+    }
 }
