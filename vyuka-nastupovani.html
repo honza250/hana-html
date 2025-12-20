@@ -12,7 +12,9 @@
   <meta property="og:image" content="/og-image.jpg" />
   <meta name="theme-color" content="#4ECDC4" />
   <link rel="icon" href="favicon.svg" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="assets/css/themes.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
 </head>
 <body>
   <header class="nav">
@@ -142,101 +144,9 @@
     </div>
   </footer>
 
-  <script>
-    const d = new Date();
-    document.getElementById('year').textContent = d.getFullYear();
-
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    const root = document.documentElement;
-
-    // Check for saved theme preference or default to system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-
-    // Apply initial theme
-    function setTheme(theme) {
-      root.classList.remove('light-theme', 'dark-theme');
-      root.classList.add(`${theme}-theme`);
-      
-      // Toggle icon visibility
-      if (theme === 'dark') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-      }
-      
-      localStorage.setItem('theme', theme);
-    }
-
-    // Set initial theme
-    setTheme(currentTheme);
-
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-      const newTheme = root.classList.contains('dark-theme') ? 'light' : 'dark';
-      setTheme(newTheme);
-    });
-
-    // Auto-hide navigation on scroll
-    let lastScroll = window.pageYOffset;
-    const header = document.querySelector('header.nav');
-    const dropdown = document.querySelector('.nav-item.dropdown');
-    let isDropdownOpen = false;
-    
-    // Dropdown click toggle for mobile
-    const dropdownLink = dropdown?.querySelector('.nav-link');
-    if (dropdownLink) {
-      dropdownLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent navigation to #sluzby
-        isDropdownOpen = !isDropdownOpen;
-        dropdown.classList.toggle('dropdown-active', isDropdownOpen);
-      });
-    }
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (e) => {
-      if (dropdown && !dropdown.contains(e.target) && isDropdownOpen) {
-        isDropdownOpen = false;
-        dropdown.classList.remove('dropdown-active');
-      }
-    });
-    
-    let ticking = false;
-    
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScroll = window.pageYOffset;
-          
-          // Don't hide menu if dropdown is open
-          if (isDropdownOpen) {
-            lastScroll = currentScroll;
-            ticking = false;
-            return;
-          }
-          
-          // Scrolling down
-          if (currentScroll > lastScroll && currentScroll > 100) {
-            header.classList.add('nav-hidden');
-          } 
-          // Scrolling up
-          else if (currentScroll < lastScroll) {
-            header.classList.remove('nav-hidden');
-          }
-          
-          lastScroll = currentScroll;
-          ticking = false;
-        });
-        
-        ticking = true;
-      }
-    });
-  </script>
+  <!-- JavaScript Modules -->
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
