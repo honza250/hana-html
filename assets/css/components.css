@@ -277,6 +277,11 @@
     padding: 80px 0;
 }
 
+/* Service-specific backgrounds */
+body.page-treatment .hero-with-bg {
+    background-image: url('../../public/hana-fotky-web/uvodka_sluzby.jpg');
+}
+
 .hero-overlay {
     position: absolute;
     inset: 0;
