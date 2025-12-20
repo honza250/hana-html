@@ -1,42 +1,76 @@
 /**
- * Certificate Carousel
- * Only for index.html - certificate image carousel
+ * Carousel functionality
+ * Supports both certificate carousel (index.html) and treatment carousel (osetreni-koni.html)
  */
 
-let currentSlide = 0;
-const track = document.getElementById('cert-track');
-const dots = document.querySelectorAll('.cert-dot');
-const totalSlides = 5;
+// Certificate Carousel (index.html)
+const certTrack = document.getElementById('cert-track');
+const certDots = document.querySelectorAll('.cert-dot');
+const certPrevBtn = document.getElementById('cert-prev');
+const certNextBtn = document.getElementById('cert-next');
 
-/**
- * Navigate to specific slide
- * @param {number} index - Slide index to navigate to
- */
-function goToSlide(index) {
-    currentSlide = index;
-    track.style.transform = `translateX(-${index * 100}%)`;
+if (certTrack && certDots.length > 0) {
+    let certCurrentSlide = 0;
+    const certTotalSlides = certDots.length;
 
-    // Update dots
-    dots.forEach((dot, i) => {
-        dot.style.background = i === index ? 'var(--brand)' : 'var(--muted)';
+    function goToCertSlide(index) {
+        certCurrentSlide = index;
+        certTrack.style.transform = `translateX(-${index * 100}%)`;
+
+        certDots.forEach((dot, i) => {
+            dot.style.background = i === index ? 'var(--brand)' : 'var(--muted)';
+        });
+    }
+
+    certPrevBtn?.addEventListener('click', () => {
+        certCurrentSlide = (certCurrentSlide - 1 + certTotalSlides) % certTotalSlides;
+        goToCertSlide(certCurrentSlide);
+    });
+
+    certNextBtn?.addEventListener('click', () => {
+        certCurrentSlide = (certCurrentSlide + 1) % certTotalSlides;
+        goToCertSlide(certCurrentSlide);
+    });
+
+    certDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToCertSlide(index);
+        });
     });
 }
 
-// Previous button
-document.getElementById('cert-prev').addEventListener('click', () => {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-    goToSlide(currentSlide);
-});
+// Treatment Carousel (osetreni-koni.html)
+const treatmentTrack = document.getElementById('treatment-track');
+const treatmentDots = document.querySelectorAll('.treatment-dot');
+const treatmentPrevBtn = document.getElementById('treatment-prev');
+const treatmentNextBtn = document.getElementById('treatment-next');
 
-// Next button
-document.getElementById('cert-next').addEventListener('click', () => {
-    currentSlide = (currentSlide + 1) % totalSlides;
-    goToSlide(currentSlide);
-});
+if (treatmentTrack && treatmentDots.length > 0) {
+    let treatmentCurrentSlide = 0;
+    const treatmentTotalSlides = treatmentDots.length;
 
-// Dot navigation
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        goToSlide(index);
+    function goToTreatmentSlide(index) {
+        treatmentCurrentSlide = index;
+        treatmentTrack.style.transform = `translateX(-${index * 100}%)`;
+
+        treatmentDots.forEach((dot, i) => {
+            dot.style.background = i === index ? 'var(--brand)' : 'var(--muted)';
+        });
+    }
+
+    treatmentPrevBtn?.addEventListener('click', () => {
+        treatmentCurrentSlide = (treatmentCurrentSlide - 1 + treatmentTotalSlides) % treatmentTotalSlides;
+        goToTreatmentSlide(treatmentCurrentSlide);
     });
-});
+
+    treatmentNextBtn?.addEventListener('click', () => {
+        treatmentCurrentSlide = (treatmentCurrentSlide + 1) % treatmentTotalSlides;
+        goToTreatmentSlide(treatmentCurrentSlide);
+    });
+
+    treatmentDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToTreatmentSlide(index);
+        });
+    });
+}

@@ -195,4 +195,19 @@ h1 {
     .section div[style*="grid-template-columns: repeat(6, 1fr)"] .card {
         grid-column: 1 / -1 !important;
     }
+
+    /* Treatment Carousel Responsive */
+    #treatment-carousel img {
+        height: 300px !important;
+    }
+
+    /* Post-Treatment Section Responsive */
+    .section h2+div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .section div[style*="position: sticky"] {
+        position: static !important;
+        margin-top: 1.5rem;
+    }
 }
