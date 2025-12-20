@@ -168,6 +168,21 @@
     flex: 1;
 }
 
+/* Active dropdown item */
+.dropdown-item.active {
+    background: linear-gradient(135deg,
+            color-mix(in oklab, var(--brand) 20%, transparent),
+            color-mix(in oklab, var(--brand-2) 15%, transparent));
+    color: var(--brand);
+    font-weight: 600;
+    border-left: 3px solid var(--brand);
+    padding-left: 13px;
+}
+
+.dropdown-item.active svg {
+    color: var(--brand);
+}
+
 /* Buttons */
 .btn {
     display: inline-flex;
@@ -279,6 +294,14 @@
 
 /* Service-specific backgrounds */
 body.page-treatment .hero-with-bg {
+    background-image: url('../../public/hana-fotky-web/uvodka_sluzby.jpg');
+}
+
+body.page-transport .hero-with-bg {
+    background-image: url('../../public/hana-fotky-web/uvodka_sluzby.jpg');
+}
+
+body.page-training .hero-with-bg {
     background-image: url('../../public/hana-fotky-web/uvodka_sluzby.jpg');
 }
 
