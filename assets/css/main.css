@@ -186,4 +186,13 @@ h1 {
         max-width: 400px !important;
         margin: 0 auto !important;
     }
+
+    /* Preparation Section Responsive */
+    .section div[style*="grid-template-columns: repeat(6, 1fr)"] {
+        grid-template-columns: 1fr !important;
+    }
+
+    .section div[style*="grid-template-columns: repeat(6, 1fr)"] .card {
+        grid-column: 1 / -1 !important;
+    }
 }
