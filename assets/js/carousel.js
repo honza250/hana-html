@@ -74,3 +74,39 @@ if (treatmentTrack && treatmentDots.length > 0) {
         });
     });
 }
+
+// Transport Carousel (preprava-koni.html)
+const transportTrack = document.getElementById('transport-track');
+const transportDots = document.querySelectorAll('.transport-dot');
+const transportPrevBtn = document.getElementById('transport-prev');
+const transportNextBtn = document.getElementById('transport-next');
+
+if (transportTrack && transportDots.length > 0) {
+    let transportCurrentSlide = 0;
+    const transportTotalSlides = transportDots.length;
+
+    function goToTransportSlide(index) {
+        transportCurrentSlide = index;
+        transportTrack.style.transform = `translateX(-${index * 100}%)`;
+
+        transportDots.forEach((dot, i) => {
+            dot.style.background = i === index ? 'var(--brand)' : 'var(--muted)';
+        });
+    }
+
+    transportPrevBtn?.addEventListener('click', () => {
+        transportCurrentSlide = (transportCurrentSlide - 1 + transportTotalSlides) % transportTotalSlides;
+        goToTransportSlide(transportCurrentSlide);
+    });
+
+    transportNextBtn?.addEventListener('click', () => {
+        transportCurrentSlide = (transportCurrentSlide + 1) % transportTotalSlides;
+        goToTransportSlide(transportCurrentSlide);
+    });
+
+    transportDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToTransportSlide(index);
+        });
+    });
+}

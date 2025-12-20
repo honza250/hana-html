@@ -195,6 +195,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apply to treatment carousel images
     addZoomToImages('#treatment-carousel img');
 
+    // Apply to transport carousel images
+    addZoomToImages('#transport-carousel img');
+
     // Add zoom to standalone images (simpler - no wrapper needed)
     const addZoomToStandaloneImages = (selector) => {
         const images = document.querySelectorAll(selector);
@@ -250,7 +253,9 @@ document.addEventListener('DOMContentLoaded', () => {
             parent.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                openLightbox(img.src);
+                // Use data-src if available, otherwise use src
+                const imgSrc = img.getAttribute('data-src') || img.src;
+                openLightbox(imgSrc);
             });
         });
     };
@@ -258,6 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apply to standalone images
     addZoomToStandaloneImages('img[src*="Loki.jpg"]');
     addZoomToStandaloneImages('img[src*="Hana.png"]');
+
+    // Apply to all images with lightbox-trigger class
+    addZoomToStandaloneImages('.lightbox-trigger');
 
     // Hover effects for buttons
     [lightboxClose, lightboxPrev, lightboxNext].forEach(btn => {

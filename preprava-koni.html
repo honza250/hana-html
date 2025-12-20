@@ -118,28 +118,44 @@
     <section class="section">
       <div class="container">
         <h2>Souprava pro převoz koní</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Nissan Pathfinder 2.5DCI</h3>
-            <p class="muted"><strong>Tažné vozidlo</strong></p>
-            <ul class="muted">
-              <li>Pro 7 osob včetně řidiče</li>
-              <li>Komfort pro přepravované osoby</li>
-              <li>Velký zavazadlový prostor</li>
-              <li>Masivní konstrukce s rámem → bezpečné tahání</li>
-              <li>Systém 4x4 pro bezpečnost v zimě i náročném terénu</li>
-            </ul>
+        
+        <!-- Nissan Pathfinder with photo -->
+        <div style="display: flex; gap: 2rem; align-items: start; margin-bottom: 3rem; flex-wrap: wrap;">
+          <div style="flex: 1; min-width: 300px;">
+            <div class="card" style="height: 100%;">
+              <h3>Nissan Pathfinder 2.5DCI</h3>
+              <p class="muted"><strong>Tažné vozidlo</strong></p>
+              <ul class="muted">
+                <li>Pro 7 osob včetně řidiče</li>
+                <li>Komfort pro přepravované osoby</li>
+                <li>Velký zavazadlový prostor</li>
+                <li>Masivní konstrukce s rámem → bezpečné tahání</li>
+                <li>Systém 4x4 pro bezpečnost v zimě i náročném terénu</li>
+              </ul>
+            </div>
           </div>
-          <div class="card">
-            <h3>Přepravník pro koně</h3>
-            <p class="muted"><strong>Dvoumístný celolaminátový přívěs</strong></p>
-            <ul class="muted">
-              <li>Bílá střecha eliminuje teplo v létě</li>
-              <li>Boční okna pro cirkulaci vzduchu</li>
-              <li>Protiskluzové podlahy</li>
-              <li>Světlý a prostorný vnitřek</li>
-              <li>Kamerový systém + panic systém</li>
-            </ul>
+          <div style="flex: 0 0 400px; min-width: 300px; position: relative;">
+            <img src="public/hana-fotky-web/prevoz/auto.webp" alt="Nissan Pathfinder - tažné vozidlo" class="lightbox-trigger" data-src="public/hana-fotky-web/prevoz/auto.webp" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2); cursor: pointer;">
+          </div>
+        </div>
+        
+        <!-- Přepravník with photo -->
+        <div style="display: flex; gap: 2rem; align-items: start; flex-wrap: wrap; flex-direction: row-reverse;">
+          <div style="flex: 1; min-width: 300px;">
+            <div class="card" style="height: 100%;">
+              <h3>Přepravník pro koně</h3>
+              <p class="muted"><strong>Dvoumístný celolaminátový přívěs</strong></p>
+              <ul class="muted">
+                <li>Bílá střecha eliminuje teplo v létě</li>
+                <li>Boční okna pro cirkulaci vzduchu</li>
+                <li>Protiskluzové podlahy</li>
+                <li>Světlý a prostorný vnitřek</li>
+                <li>Kamerový systém + panic systém</li>
+              </ul>
+            </div>
+          </div>
+          <div style="flex: 0 0 400px; min-width: 300px; position: relative;">
+            <img src="public/hana-fotky-web/prevoz/hengr.webp" alt="Hangár pro koně" class="lightbox-trigger" data-src="public/hana-fotky-web/prevoz/hengr.webp" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2); cursor: pointer;">
           </div>
         </div>
       </div>
@@ -167,10 +183,47 @@
       </div>
     </section>
 
+    <section class="section">
+      <div class="container">
+        <h2>Fotogalerie z přeprav</h2>
+        <p class="lead" style="margin-bottom: 2rem;">Ukázka našich přeprav koní</p>
+        
+        <!-- Transport Photo Carousel -->
+        <div style="max-width: 900px; margin: 0 auto;">
+          <div id="transport-carousel" class="lightbox-gallery" style="position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2);">
+            <div id="transport-track" style="display: flex; transition: transform 0.4s ease;">
+              <img src="public/hana-fotky-web/prevoz/DSC_0129.JPG" alt="Přeprava koní" style="min-width: 100%; height: 500px; object-fit: cover;">
+              <img src="public/hana-fotky-web/prevoz/DSC_0146.JPG" alt="Přeprava koní" style="min-width: 100%; height: 500px; object-fit: cover;">
+              <img src="public/hana-fotky-web/prevoz/DSC_0172.JPG" alt="Přeprava koní" style="min-width: 100%; height: 500px; object-fit: cover;">
+              <img src="public/hana-fotky-web/prevoz/DSC_0197.JPG" alt="Přeprava koní" style="min-width: 100%; height: 500px; object-fit: cover;">
+              <img src="public/hana-fotky-web/prevoz/DSC_0218.JPG" alt="Přeprava koní" style="min-width: 100%; height: 500px; object-fit: cover;">
+              <img src="public/hana-fotky-web/prevoz/DSC_0247.JPG" alt="Přeprava koní" style="min-width: 100%; height: 500px; object-fit: cover;">
+            </div>
+            
+            <!-- Previous Button -->
+            <button id="transport-prev" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">‹</button>
+            
+            <!-- Next Button -->
+            <button id="transport-next" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center;">›</button>
+          </div>
+          
+          <!-- Dots Indicators -->
+          <div id="transport-dots" style="display: flex; justify-content: center; gap: 8px; margin-top: 1rem;">
+            <span class="transport-dot" data-index="0" style="width: 10px; height: 10px; border-radius: 50%; background: var(--brand); cursor: pointer;"></span>
+            <span class="transport-dot" data-index="1" style="width: 10px; height: 10px; border-radius: 50%; background: var(--muted); cursor: pointer;"></span>
+            <span class="transport-dot" data-index="2" style="width: 10px; height: 10px; border-radius: 50%; background: var(--muted); cursor: pointer;"></span>
+            <span class="transport-dot" data-index="3" style="width: 10px; height: 10px; border-radius: 50%; background: var(--muted); cursor: pointer;"></span>
+            <span class="transport-dot" data-index="4" style="width: 10px; height: 10px; border-radius: 50%; background: var(--muted); cursor: pointer;"></span>
+            <span class="transport-dot" data-index="5" style="width: 10px; height: 10px; border-radius: 50%; background: var(--muted); cursor: pointer;"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" style="background: var(--card); margin: 4rem 0; padding: 3rem 0;">
       <div class="container">
         <h2 style="text-align: center;">Ceník</h2>
-        <div class="grid">
+        <div style="max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 1.5rem;">
           <div class="card">
             <h3>Přeprava ve vleku pro 2 koně</h3>
             <p class="lead" style="color: var(--brand); font-size: 2rem;">18 Kč/km</p>
@@ -216,6 +269,8 @@
   <!-- JavaScript Modules -->
   <script src="assets/js/theme.js" defer></script>
   <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/carousel.js" defer></script>
+  <script src="assets/js/lightbox.js" defer></script>
   <script src="assets/js/contact-highlight.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </body>
