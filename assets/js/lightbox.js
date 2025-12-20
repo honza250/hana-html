@@ -1,15 +1,18 @@
 /**
- * Image Lightbox
- * Click to zoom functionality for carousel images
+ * Image Lightbox with Carousel Navigation
+ * Click to zoom functionality with carousel support
  */
 
 // Create lightbox overlay on page load
 document.addEventListener('DOMContentLoaded', () => {
-    // Create lightbox HTML structure
+    // Create lightbox HTML structure with navigation
     const lightboxHTML = `
         <div id="lightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 9999; cursor: zoom-out;">
-            <button id="lightbox-close" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease; z-index: 10000;">✕</button>
+            <button id="lightbox-close" style="position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease; z-index: 10000; display: flex; align-items: center; justify-content: center;">✕</button>
+            <button id="lightbox-prev" style="display: none; position: absolute; left: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease; z-index: 10000; align-items: center; justify-content: center;">‹</button>
+            <button id="lightbox-next" style="display: none; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.2); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease; z-index: 10000; align-items: center; justify-content: center;">›</button>
             <img id="lightbox-img" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); max-width: 95%; max-height: 95%; object-fit: contain; border-radius: 8px;">
+            <div id="lightbox-counter" style="display: none; position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); color: white; font-size: 14px; background: rgba(0,0,0,0.5); padding: 8px 16px; border-radius: 20px;"></div>
         </div>
     `;
 
@@ -18,18 +21,70 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const lightboxCounter = document.getElementById('lightbox-counter');
 
-    // Function to open lightbox
+    // State for carousel mode
+    let carouselImages = [];
+    let currentCarouselIndex = 0;
+    let isCarouselMode = false;
+
+    // Function to open lightbox (single image mode)
     function openLightbox(imgSrc) {
+        isCarouselMode = false;
+        carouselImages = [];
         lightboxImg.src = imgSrc;
         lightbox.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
+        lightboxPrev.style.display = 'none';
+        lightboxNext.style.display = 'none';
+        lightboxCounter.style.display = 'none';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Function to open lightbox in carousel mode
+    function openLightboxCarousel(images, startIndex) {
+        isCarouselMode = true;
+        carouselImages = images;
+        currentCarouselIndex = startIndex;
+        updateLightboxImage();
+        lightbox.style.display = 'block';
+        lightboxPrev.style.display = 'flex';
+        lightboxNext.style.display = 'flex';
+        lightboxCounter.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Update lightbox image in carousel mode
+    function updateLightboxImage() {
+        if (isCarouselMode && carouselImages.length > 0) {
+            lightboxImg.src = carouselImages[currentCarouselIndex];
+            lightboxCounter.textContent = `${currentCarouselIndex + 1} / ${carouselImages.length}`;
+        }
+    }
+
+    // Navigate to next image in carousel
+    function nextImage() {
+        if (isCarouselMode) {
+            currentCarouselIndex = (currentCarouselIndex + 1) % carouselImages.length;
+            updateLightboxImage();
+        }
+    }
+
+    // Navigate to previous image in carousel
+    function prevImage() {
+        if (isCarouselMode) {
+            currentCarouselIndex = (currentCarouselIndex - 1 + carouselImages.length) % carouselImages.length;
+            updateLightboxImage();
+        }
     }
 
     // Function to close lightbox
     function closeLightbox() {
         lightbox.style.display = 'none';
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = '';
+        isCarouselMode = false;
+        carouselImages = [];
     }
 
     // Add click handlers to close lightbox
@@ -40,17 +95,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     lightbox.addEventListener('click', closeLightbox);
 
-    // Close on Escape key
+    // Navigation buttons
+    lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        prevImage();
+    });
+
+    lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        nextImage();
+    });
+
+    // Close on Escape key, navigate with arrow keys
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.style.display === 'block') {
-            closeLightbox();
+        if (lightbox.style.display === 'block') {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft' && isCarouselMode) {
+                prevImage();
+            } else if (e.key === 'ArrowRight' && isCarouselMode) {
+                nextImage();
+            }
         }
     });
 
     // Add zoom cursor and click handler to all carousel images
     const addZoomToImages = (selector) => {
         const images = document.querySelectorAll(selector);
-        images.forEach(img => {
+        const imageArray = Array.from(images).map(img => img.src);
+
+        images.forEach((img, index) => {
             // Wrap image in container for icon overlay
             const wrapper = document.createElement('div');
             wrapper.style.position = 'relative';
@@ -110,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
             wrapper.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                openLightbox(img.src);
+                openLightboxCarousel(imageArray, index);
             });
         });
     };
@@ -185,12 +259,14 @@ document.addEventListener('DOMContentLoaded', () => {
     addZoomToStandaloneImages('img[src*="Loki.jpg"]');
     addZoomToStandaloneImages('img[src*="Hana.png"]');
 
-    // Hover effect for close button
-    lightboxClose.addEventListener('mouseenter', () => {
-        lightboxClose.style.background = 'rgba(255,255,255,0.3)';
-    });
+    // Hover effects for buttons
+    [lightboxClose, lightboxPrev, lightboxNext].forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+            btn.style.background = 'rgba(255,255,255,0.3)';
+        });
 
-    lightboxClose.addEventListener('mouseleave', () => {
-        lightboxClose.style.background = 'rgba(255,255,255,0.2)';
+        btn.addEventListener('mouseleave', () => {
+            btn.style.background = 'rgba(255,255,255,0.2)';
+        });
     });
 });
