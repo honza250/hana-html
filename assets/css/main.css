@@ -104,9 +104,21 @@ h1 {
     padding-top: 0;
 }
 
+
 /* ============================================
    RESPONSIVE DESIGN
    ============================================ */
+
+/* Desktop: Hide hamburger menu and overlay */
+@media (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+
+    .nav-overlay {
+        display: none !important;
+    }
+}
 
 @media (max-width: 900px) {
     .grid {
@@ -156,22 +168,150 @@ h1 {
         justify-content: center;
     }
 
-    /* Navigation Responsive */
+    /* Navigation Responsive - Hamburger Menu */
     .main-nav {
-        gap: 12px;
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 280px;
+        background: var(--card);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 80px 24px 24px;
+        gap: 0;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        z-index: 999;
+    }
+
+    .main-nav.nav-open {
+        transform: translateX(0);
+    }
+
+    .nav-link {
+        width: 100%;
+        padding: 16px 12px;
+        border-bottom: 1px solid color-mix(in oklab, var(--muted) 15%, transparent);
+    }
+
+    .nav-item.dropdown {
+        width: 100%;
+    }
+
+    .nav-item.dropdown .nav-link {
+        border-bottom: none;
+    }
+
+    /* Hamburger Button */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 12px;
+        border: none;
+        background: var(--card);
+        border-radius: 12px;
+        cursor: pointer;
+        border: 1px solid color-mix(in oklab, var(--muted) 25%, transparent);
+        box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        z-index: 1001;
+    }
+
+    .hamburger:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+        border-color: var(--brand);
+        background: color-mix(in oklab, var(--brand) 10%, var(--card));
+    }
+
+    .hamburger span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Mobile Menu Overlay */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-overlay.active {
+        display: block;
+        opacity: 1;
     }
 
     .dropdown-menu {
-        position: fixed;
-        left: 50%;
-        transform: translateX(-50%) translateY(-10px);
-        min-width: calc(100vw - 48px);
-        max-width: 400px;
+        position: static;
+        transform: none;
+        min-width: 100%;
+        max-width: 100%;
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 4px;
+        margin-top: 8px;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+        background: transparent;
     }
 
-    .nav-item.dropdown:hover .dropdown-menu,
     .nav-item.dropdown.dropdown-active .dropdown-menu {
-        transform: translateX(-50%) translateY(0);
+        display: grid;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .dropdown-item {
+        flex-direction: row;
+        text-align: left;
+        gap: 12px;
+        padding: 12px 16px;
+        margin-left: 20px;
+        border-radius: 8px;
+        background: color-mix(in oklab, var(--muted) 5%, transparent);
+    }
+
+    .dropdown-item.dropdown-overview {
+        margin-left: 10px;
+    }
+
+    .dropdown-item span {
+        font-size: 0.9rem;
+        line-height: 1.3;
+    }
+
+    .dropdown-item svg {
+        width: 20px;
+        height: 20px;
     }
 
     /* O mně Section Responsive */

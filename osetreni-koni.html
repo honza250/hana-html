@@ -31,12 +31,21 @@
           </svg>
         </a>
         <div class="nav-item dropdown">
-          <a href="index.html#sluzby" class="nav-link">Služby 
+          <a href="#" class="nav-link">Služby 
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dropdown-arrow">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </a>
           <div class="dropdown-menu">
+            <a href="index.html#sluzby" class="dropdown-item dropdown-overview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+              </svg>
+              <span>Přehled služeb</span>
+            </a>
             <a href="osetreni-koni.html" class="dropdown-item active" aria-current="page">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -62,6 +71,11 @@
         <a href="index.html#o-mne" class="nav-link">O mně</a>
         <a href="index.html#kontakt" class="nav-link">Kontakt</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Otevřít menu" title="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <button id="theme-toggle" aria-label="Přepnout tmavý/světlý režim" title="Přepnout tmavý/světlý režim">
         <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
@@ -73,6 +87,7 @@
       </button>
     </div>
   </header>
+  <div class="nav-overlay" id="nav-overlay"></div>
 
   <main id="top">
     <section class="hero hero-with-bg" aria-label="Úvod">

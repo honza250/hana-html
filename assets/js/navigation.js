@@ -9,13 +9,18 @@ const header = document.querySelector('header.nav');
 const dropdown = document.querySelector('.nav-item.dropdown');
 let isDropdownOpen = false;
 
-// Dropdown click toggle for mobile
+// Dropdown toggle - clicking "Služby" only shows dropdown, no navigation
 const dropdownLink = dropdown?.querySelector('.nav-link');
 if (dropdownLink) {
     dropdownLink.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent navigation to #sluzby
-        isDropdownOpen = !isDropdownOpen;
-        dropdown.classList.toggle('dropdown-active', isDropdownOpen);
+        e.preventDefault(); // Always prevent navigation to #sluzby
+
+        // Toggle dropdown on mobile
+        if (window.innerWidth <= 768) {
+            isDropdownOpen = !isDropdownOpen;
+            dropdown.classList.toggle('dropdown-active', isDropdownOpen);
+        }
+        // On desktop, show dropdown on hover (handled by CSS)
     });
 }
 
@@ -55,5 +60,63 @@ window.addEventListener('scroll', () => {
         });
 
         ticking = true;
+    }
+});
+
+// Hamburger Menu Toggle (Mobile)
+const hamburger = document.getElementById('hamburger');
+const navOverlay = document.getElementById('nav-overlay');
+const mainNav = document.querySelector('.main-nav');
+
+function toggleMobileMenu() {
+    hamburger.classList.toggle('active');
+    mainNav.classList.toggle('nav-open');
+    navOverlay.classList.toggle('active');
+
+    // Prevent body scroll when menu is open
+    if (mainNav.classList.contains('nav-open')) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = '';
+    }
+}
+
+function closeMobileMenu() {
+    hamburger.classList.remove('active');
+    mainNav.classList.remove('nav-open');
+    navOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+
+    // Also close dropdown if open
+    if (isDropdownOpen) {
+        isDropdownOpen = false;
+        dropdown?.classList.remove('dropdown-active');
+    }
+}
+
+// Toggle menu when hamburger is clicked
+hamburger?.addEventListener('click', toggleMobileMenu);
+
+// Close menu when overlay is clicked
+navOverlay?.addEventListener('click', closeMobileMenu);
+
+// Close menu when navigation happens (but not for Services dropdown toggle)
+const navLinks = mainNav?.querySelectorAll('.nav-link, .dropdown-item');
+navLinks?.forEach(link => {
+    link.addEventListener('click', (e) => {
+        // Don't close menu if clicking on the Services dropdown toggle
+        const isDropdownToggle = link.closest('.nav-item.dropdown') && link.classList.contains('nav-link');
+
+        if (!isDropdownToggle) {
+            // Close menu for other links (home, about, contact) and dropdown items
+            setTimeout(closeMobileMenu, 100);
+        }
+    });
+});
+
+// Close mobile menu when resizing to desktop
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && mainNav.classList.contains('nav-open')) {
+        closeMobileMenu();
     }
 });
