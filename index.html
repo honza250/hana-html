@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jméno Příjmení – Osobní stránky / Rozcestník</title>
-  <meta name="description" content="Oficiální osobní stránky. Fyzioterapie koní, přeprava koní a brzy další služby." />
+  <title>Hana Perutková – Služby</title>
+  <meta name="description" content="Fyzioterapie koní, přeprava koní a výuka nastupování. Profesionální péče s respektem ke zvířeti." />
   <meta name="color-scheme" content="light dark" />
-  <meta property="og:title" content="Hana Perutkova – Osobní stránky" />
+  <meta property="og:title" content="Hana Perutková – Služby" />
   <meta property="og:description" content="Fyzioterapie koní, převoz koní a další služby." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/og-image.jpg" />
-  <meta name="theme-color" content="#0ea5e9" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230ea5e9'/%3E%3Ctext x='50' y='58' font-size='50' text-anchor='middle' fill='white' font-family='Arial, sans-serif'%3EJP%3C/text%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#4ECDC4" />
+  <link rel="icon" href="favicon.svg" />
+  <link rel="stylesheet" href="assets/css/themes.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/main.css" />
   <script type="application/ld+json">
     {
       "@context":"https://schema.org",
       "@type":"Person",
-      "name":"Jméno Příjmení",
+      "name":"Hana Perutková",
       "url":"https://moje-domena.cz",
       "image":"https://moje-domena.cz/og-image.jpg",
       "jobTitle":"Fyzioterapeutka koní, přeprava koní",
@@ -35,36 +37,58 @@
         <span>Hana Perutková</span>
       </a>
       <nav aria-label="Hlavní navigace" class="main-nav">
+        <a href="#top" class="nav-link" aria-label="Hlavní stránka" title="Hlavní stránka">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <path d="M9 22V12h6v10"/>
+          </svg>
+        </a>
         <div class="nav-item dropdown">
-          <a href="#sluzby" class="nav-link">Služby 
+          <a href="#" class="nav-link">Služby 
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="dropdown-arrow">
               <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </a>
           <div class="dropdown-menu">
-            <a href="fyzioterapie-koni.html" class="dropdown-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <a href="#sluzby" class="dropdown-item dropdown-overview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
               </svg>
-              <span>Fyzioterapie koní</span>
+              <span>Přehled služeb</span>
+            </a>
+            <a href="osetreni-koni.html" class="dropdown-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                <path d="M3.22 12h3.59l2.08-4.37 2.11 8.74 2.11-4.37h3.67"/>
+              </svg>
+              <span>Ošetření pohybového aparátu koní</span>
             </a>
             <a href="preprava-koni.html" class="dropdown-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0"/>
               </svg>
-              <span>Přeprava koní</span>
+              <span>Profesionální přeprava koní</span>
             </a>
             <a href="vyuka-nastupovani.html" class="dropdown-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 6v12M9 12l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
               </svg>
-              <span>Výuka nastupování</span>
+              <span>Výuka nastupování problémových koní</span>
             </a>
           </div>
         </div>
         <a href="#o-mne" class="nav-link">O mně</a>
         <a href="#kontakt" class="nav-link">Kontakt</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Otevřít menu" title="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
       <button id="theme-toggle" aria-label="Přepnout tmavý/světlý režim" title="Přepnout tmavý/světlý režim">
         <svg id="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
@@ -76,6 +100,7 @@
       </button>
     </div>
   </header>
+  <div class="nav-overlay" id="nav-overlay"></div>
 
   <main id="top">
     <section class="hero hero-with-bg" aria-label="Úvod">
@@ -110,12 +135,12 @@
         <div class="grid" role="list">
 
           <!-- Ošetření pohybového aparátu koní -->
-          <article class="card" role="listitem" data-href="fyzioterapie-koni.html">
-            <div class="chip" aria-label="Kategorie">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <article class="card" role="listitem" data-href="osetreni-koni.html" style="position: relative;">
+            <div style="position: absolute; top: 18px; right: 18px; width: 50px; height: 50px; display: grid; place-items: center; border-radius: 12px; background: color-mix(in oklab, var(--brand) 10%, transparent);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" aria-hidden="true" width="28" height="28">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                <path d="M3.22 12h3.59l2.08-4.37 2.11 8.74 2.11-4.37h3.67"/>
               </svg>
-              Fyzioterapie
             </div>
             <h3>Ošetření pohybového aparátu koní</h3>
             <p>Ošetření koní pro zlepšení fyzické a psychické kondice, prevenci zranění, rehabilitaci po zranění a zvýšení výkonu koní.</p>
@@ -126,18 +151,17 @@
               <li><strong>Ceník: 2000 Kč za koně</strong> (cestovné v ceně)</li>
             </ul>
             <div class="cta">
-              <a class="btn btn-primary" href="fyzioterapie-koni.html">Více informací</a>
+              <a class="btn btn-primary" href="osetreni-koni.html">Více informací</a>
               <a class="btn btn-outline" href="#kontakt">Kontaktovat</a>
             </div>
           </article>
 
           <!-- Profesionální přeprava koní -->
-          <article class="card" role="listitem" data-href="preprava-koni.html">
-            <div class="chip">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <article class="card" role="listitem" data-href="preprava-koni.html" style="position: relative;">
+            <div style="position: absolute; top: 18px; right: 18px; width: 50px; height: 50px; display: grid; place-items: center; border-radius: 12px; background: color-mix(in oklab, var(--brand) 10%, transparent);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" aria-hidden="true" width="28" height="28">
+                <path d="M3 7h11l4 4h3v6h-2m-2 0a2 2 0 11-4 0m-6 0a2 2 0 11-4 0"/>
               </svg>
-              Přeprava
             </div>
             <h3>Profesionální přeprava koní</h3>
             <p>Bezpečně, pohodlně a klidně, jak pro vaše koně, tak i pro vás jako majitele. Nissan Pathfinder 4x4 + dvoumístný přívěs s kamerovým systémem.</p>
@@ -154,12 +178,12 @@
           </article>
 
           <!-- Výuka nastupování problémových koní -->
-          <article class="card" role="listitem" data-href="vyuka-nastupovani.html">
-            <div class="chip">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 6v12M9 12l3 3 3-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <article class="card" role="listitem" data-href="vyuka-nastupovani.html" style="position: relative;">
+            <div style="position: absolute; top: 18px; right: 18px; width: 50px; height: 50px; display: grid; place-items: center; border-radius: 12px; background: color-mix(in oklab, var(--brand) 10%, transparent);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--brand)" stroke-width="2" aria-hidden="true" width="28" height="28">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
               </svg>
-              Výuka
             </div>
             <h3>Výuka nastupování problémových koní</h3>
             <p>Naučím vašeho koně ochotně a rychle nastupovat, ať máte jistotu i v krizových situacích – akutní převoz na kliniku.</p>
@@ -233,7 +257,9 @@
           <!-- Right: Photo and Carousel stacked (constrained to half page) -->
           <div style="width: 400px;">
             <!-- Photo -->
-            <img src="public/hana-fotky-web/Hana.png" alt="Hana Perutková" style="width: 100%; object-fit: contain; border-radius: 20px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2); margin-bottom: 2rem;">
+            <div style="position: relative; margin-bottom: 2rem;">
+              <img src="public/hana-fotky-web/Hana.png" alt="Hana Perutková" style="width: 100%; object-fit: contain; border-radius: 20px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2);">
+            </div>
             
             <!-- Certificate Carousel -->
             <div style="position: relative; background: var(--card); border-radius: 12px; padding: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
@@ -276,24 +302,82 @@
         <div class="grid">
           <div class="card">
             <h3>Osobní údaje</h3>
-            <p class="muted">Hana Perutková</p>
-            <p class="muted">Komenského 46, Mimoň, 471 24</p>
-            <p class="muted">Liberecký kraj</p>
-            <p class="muted">IČO: 21291152</p>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.5rem;">
+              <div style="display: flex; align-items: start; gap: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 2px; color: var(--brand);">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                  <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <div>
+                  <strong>Hana Perutková</strong>
+                </div>
+              </div>
+              <div style="display: flex; align-items: start; gap: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 2px; color: var(--brand);">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <div class="muted">
+                  Komenského 46<br>
+                  Mimoň, 471 24<br>
+                  Liberecký kraj
+                </div>
+              </div>
+              <div style="display: flex; align-items: start; gap: 8px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0; margin-top: 2px; color: var(--brand);">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <path d="M3 9h18"/>
+                </svg>
+                <div class="muted">
+                  <strong>IČO:</strong> 21291152
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card">
             <h3>Kontaktní údaje</h3>
-            <p>
-              <strong>Telefon:</strong> <a href="tel:+420776245040">+420 776 245 040</a><br />
-              <strong>E‑mail:</strong> <a href="mailto:vas-email@seznam.cz">vas-email@seznam.cz</a><br />
-              <strong>Provozní doba:</strong> dle dohody
-            </p>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div>
+                <strong>Telefon:</strong><br>
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px; flex-wrap: wrap;">
+                  <a href="tel:+420776245040" style="font-size: 1.1rem;">+420 776 245 040</a>
+                  <button onclick="copyToClipboard('+420776245040', this)" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--brand); background: transparent; color: var(--brand); cursor: pointer; font-size: 14px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--brand)'; this.style.color='white';" onmouseout="this.style.background='transparent'; this.style.color='var(--brand)';">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 4px;">
+                      <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Kopírovat
+                  </button>
+                </div>
+              </div>
+              <div>
+                <strong>E‑mail:</strong><br>
+                <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px; flex-wrap: wrap;">
+                  <a href="mailto:perutkovah@seznam.cz" style="font-size: 1.1rem;">perutkovah@seznam.cz</a>
+                  <button onclick="copyToClipboard('perutkovah@seznam.cz', this)" style="padding: 6px 12px; border-radius: 8px; border: 1px solid var(--brand); background: transparent; color: var(--brand); cursor: pointer; font-size: 14px; transition: all 0.3s ease;" onmouseover="this.style.background='var(--brand)'; this.style.color='white';" onmouseout="this.style.background='transparent'; this.style.color='var(--brand)';">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 4px;">
+                      <rect x="9" y="9" width="13" height="13" rx="2" stroke="currentColor" stroke-width="2"/>
+                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                    Kopírovat
+                  </button>
+                </div>
+              </div>
+              <div class="muted">
+                <strong>Provozní doba:</strong> dle dohody
+              </div>
+            </div>
           </div>
           <div class="card">
             <h3>Sociální sítě</h3>
-            <p class="inline-list">
-              <a href="#" aria-label="Facebook">Facebook: Hana Perutková Cert CAAPR</a>
-            </p>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+              <a href="https://www.facebook.com/share/17fGMZWime/" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; gap: 8px; color: var(--text); text-decoration: none; padding: 8px; border-radius: 8px; transition: all 0.2s ease;" onmouseover="this.style.background='color-mix(in oklab, var(--brand) 10%, transparent)'" onmouseout="this.style.background='transparent'">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="color: #1877F2;">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                <span style="font-weight: 500;">Hana Perutková Cert CAAPR</span>
+              </a>
+            </div>
             <p class="muted" style="margin-top: 1rem;">
               <strong>Certifikace:</strong><br>
               CertCAAPR - Fyzioterapie koní<br>
@@ -330,153 +414,12 @@
     </div>
   </footer>
 
-  <script>
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    const sunIcon = document.getElementById('sun-icon');
-    const moonIcon = document.getElementById('moon-icon');
-    const root = document.documentElement;
-
-    // Check for saved theme preference or default to system preference
-    const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const currentTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-
-    // Apply initial theme
-    function setTheme(theme) {
-      root.classList.remove('light-theme', 'dark-theme');
-      root.classList.add(`${theme}-theme`);
-      
-      // Toggle icon visibility
-      if (theme === 'dark') {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-      } else {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-      }
-      
-      localStorage.setItem('theme', theme);
-    }
-
-    // Set initial theme
-    setTheme(currentTheme);
-
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-      const newTheme = root.classList.contains('dark-theme') ? 'light' : 'dark';
-      setTheme(newTheme);
-    });
-
-    // Auto-hide navigation on scroll
-    let lastScroll = window.pageYOffset;
-    const header = document.querySelector('header.nav');
-    
-    let ticking = false;
-    
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const currentScroll = window.pageYOffset;
-          
-          console.log('Scroll:', currentScroll, 'Last:', lastScroll, 'Direction:', currentScroll > lastScroll ? 'down' : 'up');
-          
-          // Scrolling down
-          if (currentScroll > lastScroll && currentScroll > 100) {
-            console.log('Hiding menu');
-            header.classList.add('nav-hidden');
-          } 
-          // Scrolling up
-          else if (currentScroll < lastScroll) {
-            console.log('Showing menu');
-            header.classList.remove('nav-hidden');
-          }
-          
-          lastScroll = currentScroll;
-          ticking = false;
-        });
-        
-        ticking = true;
-      }
-    });
-
-    // Certificate Carousel
-    let currentSlide = 0;
-    const track = document.getElementById('cert-track');
-    const dots = document.querySelectorAll('.cert-dot');
-    const totalSlides = 5;
-
-    function goToSlide(index) {
-      currentSlide = index;
-      track.style.transform = `translateX(-${index * 100}%)`;
-      
-      // Update dots
-      dots.forEach((dot, i) => {
-        dot.style.background = i === index ? 'var(--brand)' : 'var(--muted)';
-      });
-    }
-
-    document.getElementById('cert-prev').addEventListener('click', () => {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      goToSlide(currentSlide);
-    });
-
-    document.getElementById('cert-next').addEventListener('click', () => {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      goToSlide(currentSlide);
-    });
-
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        goToSlide(index);
-      });
-    });
-
-    // Existing scripts
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('click', e => {
-        if(!e.target.closest('.cta a')) {
-          const url = card.dataset.href || card.querySelector('.btn-primary')?.href;
-          if(url) window.location.href = url;
-        }
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      const a = e.target.closest('a[href^="#"]');
-      if(!a) return;
-      const id = a.getAttribute('href').slice(1);
-      const el = document.getElementById(id);
-      if(el){
-        e.preventDefault();
-        el.scrollIntoView({behavior:'smooth', block:'start'});
-        history.pushState(null, '', '#' + id);
-      }
-    });
-
-    const d = new Date();
-    document.getElementById('today').textContent = d.toLocaleDateString('cs-CZ');
-    document.getElementById('year').textContent = d.getFullYear();
-
-    const form = document.getElementById('form');
-    form?.addEventListener('submit', (e) => {
-      const data = new FormData(form);
-      const subject = encodeURIComponent('Poptávka: ' + (data.get('Služba') || 'Služba'));
-      const body = [...data.entries()].map(([k,v]) => `${k}: ${v}`).join('%0D%0A');
-      form.action = `mailto:vas-email@example.com?subject=${subject}&body=${body}`;
-    });
-
-    document.querySelectorAll('input, select, textarea').forEach(el => {
-      el.style.width='100%';
-      el.style.padding='10px 12px';
-      el.style.marginTop='6px';
-      el.style.borderRadius='12px';
-      el.style.border='1px solid color-mix(in oklab, var(--muted) 25%, transparent)';
-      el.addEventListener('focus', () => el.style.boxShadow=`0 0 0 6px var(--ring)`);
-      el.addEventListener('blur', () => el.style.boxShadow='none');
-      el.style.background='var(--card)'; 
-      el.style.color='var(--text)';
-    });
-  </script>
+  <!-- JavaScript Modules -->
+  <script src="assets/js/theme.js" defer></script>
+  <script src="assets/js/navigation.js" defer></script>
+  <script src="assets/js/carousel.js" defer></script>
+  <script src="assets/js/lightbox.js" defer></script>
+  <script src="assets/js/contact-highlight.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>

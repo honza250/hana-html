@@ -1,0 +1,60 @@
+/* ============================================
+   THEME VARIABLES
+   ============================================ */
+
+/* Default (Dark) Theme */
+:root {
+    --bg: #0b1f1e;
+    /* pozadí hero - tmavě zelenkavá */
+    --bg-page: #0f172a;
+    /* pozadí stránky */
+    --card: #111827;
+    /* karty */
+    --muted: #94a3b8;
+    /* sekundární text */
+    --text: #e5e7eb;
+    /* primární text */
+    --brand: #4ECDC4;
+    /* akce/odkazy - mátově zelená */
+    --brand-2: #45b8af;
+    /* akcent - tmavší mátová */
+    --ring: rgba(78, 205, 196, .25);
+}
+
+/* Light Theme (system preference) */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #e0f9f7;
+        --bg-page: #f8fffe;
+        --card: #ffffff;
+        --muted: #475569;
+        --text: #0f172a;
+        --brand: #4ECDC4;
+        --brand-2: #3ab5ac;
+        --ring: rgba(78, 205, 196, .2);
+    }
+}
+
+/* Light Theme (manual override) */
+:root.light-theme {
+    --bg: #e0f9f7;
+    --bg-page: #f8fffe;
+    --card: #ffffff;
+    --muted: #475569;
+    --text: #0f172a;
+    --brand: #4ECDC4;
+    --brand-2: #3ab5ac;
+    --ring: rgba(78, 205, 196, .2);
+}
+
+/* Dark Theme (manual override) */
+:root.dark-theme {
+    --bg: #0b1f1e;
+    --bg-page: #0f172a;
+    --card: #111827;
+    --muted: #94a3b8;
+    --text: #e5e7eb;
+    --brand: #4ECDC4;
+    --brand-2: #45b8af;
+    --ring: rgba(78, 205, 196, .25);
+}
