@@ -211,63 +211,67 @@
     <section id="o-mne" class="section">
       <div class="container">
         <h2>O mně</h2>
-        <div style="display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: start; margin-top: 2rem;">
+        <div class="about-grid">
           <!-- Left: Text content and timeline -->
-          <div>
-            <p>
-              Jmenuji se Hana Perutková, bydlím blízko České Lípy (Liberecký kraj). Kolem koní se pohybuji přes 10 let, postupem času jsem získala a stále získávám spoustu cenných zkušeností s nejrůznějšími typy koní a jejich výcvikem. Neustále se vzdělávám v oborech týkajících se koní.
-            </p>
-            <p>
-              Ošetření pohybového aparátu koní se věnuji od roku 2025, kdy jsem úspěšně složila zkoušky pod Asociací fyzioterapie a rehabilitace zvířat České republiky, čímž jsem získala titul <strong>CertCAAPR</strong>. Přepravou koní se zabývám od roku 2024, kdy jsem získala všechna potřebná oprávnění (registrace: <strong>CZ 51D10045</strong>). Při přepravě vždy dbám především na komfort vašich koní.
-            </p>
-            
-            <h3 style="margin-top: 2rem;">Vzdělání a certifikace</h3>
-            
-            <div style="margin-top: 1rem;">
-              <p><strong>2025</strong></p>
-              <ul class="muted">
-                <li>Kurz Fyzioterapie a rehabilitace koní pod Asociací fyzioterapie a rehabilitace zvířat ČR, titul CertCAAPR</li>
-                <li>Praxe v Centru rehabilitace koní Kolesa</li>
-                <li>Praxe s Mvdr. Eliškou Punčochářovou PhD.</li>
-              </ul>
+          <div class="about-left">
+            <div class="about-text">
+              <p>
+                Jmenuji se Hana Perutková, bydlím blízko České Lípy (Liberecký kraj). Kolem koní se pohybuji přes 10 let, postupem času jsem získala a stále získávám spoustu cenných zkušeností s nejrůznějšími typy koní a jejich výcvikem. Neustále se vzdělávám v oborech týkajících se koní.
+              </p>
+              <p>
+                Ošetření pohybového aparátu koní se věnuji od roku 2025, kdy jsem úspěšně složila zkoušky pod Asociací fyzioterapie a rehabilitace zvířat České republiky, čímž jsem získala titul <strong>CertCAAPR</strong>. Přepravou koní se zabývám od roku 2024, kdy jsem získala všechna potřebná oprávnění (registrace: <strong>CZ 51D10045</strong>). Při přepravě vždy dbám především na komfort vašich koní.
+              </p>
             </div>
             
-            <div style="margin-top: 1rem;">
-              <p><strong>2024</strong></p>
-              <ul class="muted">
-                <li>Školení MLS laserová terapie u koní</li>
-                <li>Kurz pro dopravce přepravující zvířata</li>
-                <li>Kurz bezpečné přepravy a nakládání koní</li>
-                <li>Kurz manipulace s koňmi v krizových situacích</li>
-              </ul>
-            </div>
-            
-            <div style="margin-top: 1rem;">
-              <p><strong>2023</strong></p>
-              <ul class="muted">
-                <li>Získání ZZVJ licence</li>
-                <li>Kurz lepení podkov Goodsmith a pasování bot Goodsmith</li>
-              </ul>
-            </div>
-            
-            <div style="margin-top: 1rem;">
-              <p><strong>2022</strong></p>
-              <ul class="muted">
-                <li>Kurz Výživa koní - Ing. Monika Mechová</li>
-                <li>Kurz lepení podkov Turfcord</li>
-              </ul>
+            <div class="about-timeline">
+              <h3 style="margin-top: 2rem;">Vzdělání a certifikace</h3>
+              
+              <div style="margin-top: 1rem;">
+                <p><strong>2025</strong></p>
+                <ul class="muted">
+                  <li>Kurz Fyzioterapie a rehabilitace koní pod Asociací fyzioterapie a rehabilitace zvířat ČR, titul CertCAAPR</li>
+                  <li>Praxe v Centru rehabilitace koní Kolesa</li>
+                  <li>Praxe s Mvdr. Eliškou Punčochářovou PhD.</li>
+                </ul>
+              </div>
+              
+              <div style="margin-top: 1rem;">
+                <p><strong>2024</strong></p>
+                <ul class="muted">
+                  <li>Školení MLS laserová terapie u koní</li>
+                  <li>Kurz pro dopravce přepravující zvířata</li>
+                  <li>Kurz bezpečné přepravy a nakládání koní</li>
+                  <li>Kurz manipulace s koňmi v krizových situacích</li>
+                </ul>
+              </div>
+              
+              <div style="margin-top: 1rem;">
+                <p><strong>2023</strong></p>
+                <ul class="muted">
+                  <li>Získání ZZVJ licence</li>
+                  <li>Kurz lepení podkov Goodsmith a pasování bot Goodsmith</li>
+                </ul>
+              </div>
+              
+              <div style="margin-top: 1rem;">
+                <p><strong>2022</strong></p>
+                <ul class="muted">
+                  <li>Kurz Výživa koní - Ing. Monika Mechová</li>
+                  <li>Kurz lepení podkov Turfcord</li>
+                </ul>
+              </div>
             </div>
           </div>
           
           <!-- Right: Photo and Carousel stacked (constrained to half page) -->
-          <div style="width: 400px;">
+          <div class="about-photos">
             <!-- Photo -->
-            <div style="position: relative; margin-bottom: 2rem;">
+            <div class="about-photo-item" style="position: relative; margin-bottom: 2rem;">
               <img src="public/hana-fotky-web/Hana.png" alt="Hana Perutková" style="width: 100%; object-fit: contain; border-radius: 20px; box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2);">
             </div>
             
             <!-- Certificate Carousel -->
-            <div style="position: relative; background: var(--card); border-radius: 12px; padding: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+            <div class="about-carousel-item" style="position: relative; background: var(--card); border-radius: 12px; padding: 1rem; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
               <p style="text-align: center; margin-bottom: 1rem; font-weight: 600;">Certifikáty</p>
               
               <!-- Carousel Container -->

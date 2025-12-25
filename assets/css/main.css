@@ -445,3 +445,56 @@ h1 {
 .transport-carousel-img {
     height: 500px;
 }
+
+/* About Section Responsive Layout */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+.about-photos {
+    width: 400px;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* Unwrap columns to allow reordering children */
+    .about-left,
+    .about-photos {
+        display: contents;
+    }
+
+    /* 1. Text o mně */
+    .about-text {
+        order: 1;
+    }
+
+    /* 2. Fotka o mně */
+    .about-photo-item {
+        order: 2;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    /* 3. Vzdělání (Timeline) */
+    .about-timeline {
+        order: 3;
+    }
+
+    /* 4. Carousel */
+    .about-carousel-item {
+        order: 4;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
