@@ -16,9 +16,16 @@ body {
     font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
     color: var(--text);
     background: var(--bg-page);
-    overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+}
+
+html {
+    overflow-x: clip;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 a {
@@ -527,5 +534,12 @@ body {
     /* Pricing section - reduce padding on mobile */
     .page-treatment .section[style*="padding: 1.5rem 0 3rem 0"] {
         padding: 0.2rem 0 0.2rem 0 !important;
+    }
+}
+
+/* After treatment section - center image on desktop */
+@media (min-width: 769px) {
+    .after-treatment-grid {
+        align-items: center !important;
     }
 }
