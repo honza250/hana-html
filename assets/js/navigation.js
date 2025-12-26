@@ -65,6 +65,7 @@ window.addEventListener('scroll', () => {
 
 // Hamburger Menu Toggle (Mobile)
 const hamburger = document.getElementById('hamburger');
+const menuToggle = document.getElementById('menu-toggle');
 const navOverlay = document.getElementById('nav-overlay');
 const mainNav = document.querySelector('.main-nav');
 
@@ -94,7 +95,10 @@ function closeMobileMenu() {
     }
 }
 
-// Toggle menu when hamburger is clicked
+// Open menu when menu-toggle is clicked
+menuToggle?.addEventListener('click', toggleMobileMenu);
+
+// Close menu when hamburger (X) is clicked
 hamburger?.addEventListener('click', toggleMobileMenu);
 
 // Close menu when overlay is clicked
