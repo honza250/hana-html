@@ -526,6 +526,6 @@ body {
 
     /* Pricing section - reduce padding on mobile */
     .page-treatment .section[style*="padding: 1.5rem 0 3rem 0"] {
-        padding: 0.33rem 0 0.33rem 0 !important;
+        padding: 0.2rem 0 0.2rem 0 !important;
     }
 }
